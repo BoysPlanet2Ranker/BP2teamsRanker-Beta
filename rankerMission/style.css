@@ -1,0 +1,372 @@
+/* =========================================== */
+/* === ESTILOS GERAIS E TIPOGRAFIA === */
+/* =========================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #020111;
+    color: white; /* Define a cor padrão do texto para branco */
+    font-family: Arial, sans-serif; /* Adiciona uma fonte padrão */
+}
+
+h1, h2 {
+    font-family: "Italiana", sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #ffbdfe;
+    font-weight: 400;
+    font-size: 50px;
+    margin-top: 5vh; /* Usa vh para um espaçamento responsivo */
+    text-shadow: 
+        0 0 5px #f241da,   
+        0 0 25px #f241da,  
+        0 0 50px #f241da; 
+}
+
+h2 {
+    color: #a7fdfe;
+    font-weight: 300;
+    font-size: 30px;
+    text-shadow: 
+        0 0 5px #0084be,
+        0 0 25px #0084be,
+        0 0 50px #0084be;
+}
+
+/* =========================================== */
+/* === LAYOUT E PAINÉIS PRINCIPAIS === */
+/* =========================================== */
+
+
+.missions-container h2 {
+    margin-top: 5%;
+}
+
+.missions-container button {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2%;
+}
+
+/* Regra base para todos os painéis que somem e aparecem */
+.mission-content {
+    display: none;
+    padding: 20px;
+}
+
+/* Regra que torna um painel visível */
+.mission-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Layout de duas colunas para a página de ranking */
+.ranking-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilo das colunas de ranking */
+.unranked-pool, .ranked-list {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.unranked-pool h2, .ranked-list h2 {
+    margin-top: 0;
+}
+
+/* =========================================== */
+/* === COMPONENTES ESPECÍFICOS === */
+/* =========================================== */
+
+/* Header da página inicial */
+header {
+    width: 100%;
+    overflow-x: hidden; /* Garante que a imagem larga não crie scroll */
+}
+header img {
+    width: 100%;
+}
+
+/* Imagens de navegação da página inicial */
+div.box-image {
+    display: flex;
+    justify-content: center;
+    gap: 30px;   
+    padding: 20px 0;
+}
+div.box-image img {
+    width: 10vw;
+    min-width: 80px; /* Largura mínima para não ficar muito pequeno */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 20px #f2f2f2;
+}
+div.box-image img:hover {
+    transform: scale(1.1);
+}
+
+/*Teams*/
+
+.mission-content {
+     display: none;
+    padding: 20px; /* Apenas para ficar mais bonito */
+  text-align: center; /* Exemplo de estilização */
+ color: white; /* Exemplo */
+ margin: 0;
+        padding: 0;
+
+}
+
+div.mission-content p {
+ font-size: 7.5vw;
+ font-family: 'Courier New', Courier, monospace;
+ font-style: bold;
+
+}
+
+  .teams { display: flex;
+    justify-content: center; 
+} 
+  .team img { 
+    width: 40vw;
+    box-shadow: 0 0 15px #f2f2f2b4;
+    cursor: pointer; 
+}
+
+/* Grid de trainees na coluna "Disponíveis" */
+.trainee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+/* Card de um trainee na coluna "Disponíveis" */
+/* O grid de trainees disponíveis agora usa Flexbox */
+.trainee-grid {
+    display: flex; /* MUDANÇA */
+    flex-wrap: wrap; /* MUDANÇA: Permite que os itens quebrem a linha */
+    gap: 15px;
+    justify-content: center; /* MUDANÇA: Centraliza os cards no container */
+}
+
+/* Card de um trainee na coluna "Disponíveis" */
+.trainee-card {
+    /* MUDANÇA PRINCIPAL: Definimos uma largura fixa! */
+    width: 120px; 
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+/* O resto dos estilos para a imagem dentro do card continuam os mesmos */
+.trainee-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: #333;
+}
+.trainee-card .trainee-name {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* Cada item (linha) do ranking */
+.ranking-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer; /* Adicionado para indicar que é clicável */
+    transition: background-color 0.2s; /* Efeito suave no hover */
+}
+
+.ranking-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ranking-item {
+  display: grid;
+  grid-template-columns: 40px 60px 1fr 30px; /* número, imagem, nome, estrela */
+  align-items: center;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 10px;
+}
+
+.rank-number {
+  text-align: right;
+}
+
+.rank-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rank-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  white-space: nowrap;
+}
+
+.star {
+  font-size: 1.5em;
+  justify-self: end;
+}
+
+.star.gold {
+    color: #FFD700;
+    text-shadow: 0 0 5px #ffc700;
+}
+.star.red {
+    color: #E53935;
+    text-shadow: 0 0 5px #ff6b6b;
+}
+
+/* =========================================== */
+/* === BOTÕES === */
+/* =========================================== */
+
+/* Botões de controle do ranking ("Escolher Melhor/Pior") */
+.ranking-controls {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+.ranking-controls p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+.select-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #555;
+    border: 1px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.2s ease;
+}
+.select-button:hover {
+    background-color: #777;
+}
+.select-button.active-selection {
+    background-color: #a7fdfe;
+    color: #020111;
+    border-color: #a7fdfe;
+    box-shadow: 0 0 10px #a7fdfe;
+}
+
+/* Botões de ação gerais */
+.action-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Botão genérico para voltar */
+.back-button, .back-to-mission {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.back-button:hover, .back-to-mission:hover {
+    background-color: #555;
+}
+
+/* Botão de resetar o ranking */
+.reset-ranking-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #7f1d1d;
+    border: 1px solid #991b1b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-right: 10px;
+}
+.reset-ranking-button:hover {
+    background-color: #991b1b;
+}
+
+/* =========================================== */
+/* === ANIMAÇÕES E MEDIA QUERIES === */
+/* =========================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 35px;        
+    }
+    h2 {
+        font-size: 22px;
+    }
+
+    header {
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+    header img {
+        width: 200vw;
+        max-width: none;
+    }   
+
+    div.box-image {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Adicionada a unidade 'px' */
+    }
+    div.box-image img {
+        width: 35vw;
+    }
+
+    .ranking-layout {
+        flex-direction: column;
+    }
+
+    .team img { 
+    width: 80vw;
+    box-shadow: 0 0 15px #f2f2f2b4;
+    cursor: pointer; 
+    }
+}
